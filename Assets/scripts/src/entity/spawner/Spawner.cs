@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour {
 	}
 
 	void Update () {
-		if (enemiesSpawned > count - 1) {
+		if (enemiesSpawned >= count) {
 			this.enabled = false;
 			return;
 		}

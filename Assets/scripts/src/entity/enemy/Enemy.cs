@@ -6,14 +6,18 @@ public class Enemy : MonoBehaviour {
 	public string type;
 	public int health;
 	public long speed;
+	public long turnSpeed;
 	public int reward;
 	public double switchDistance;
 
 	private Transform target;
 	private int pointIndex = 0;
 
+	private float angle;
+
 	void Start () {
-		target = WayPath.points [0];	
+		target = WayPath.points [0];
+		MovementController.turnToTarget(transform, target);
 	}
 
 	void Update() {
@@ -22,10 +26,12 @@ public class Enemy : MonoBehaviour {
 
 		if (Vector3.Distance (transform.position, target.position) <= switchDistance) {
 			Transform nextPoint = GetNextCheckpoint ();
-			if (nextPoint == null) {
-				reachTarget ();
-			} else {
+
+			if (nextPoint != null) {
 				target = nextPoint;
+				MovementController.turnToTarget (transform, target, Time.deltaTime * turnSpeed);
+			} else {
+				reachTarget ();			
 			}
 		}
 	}

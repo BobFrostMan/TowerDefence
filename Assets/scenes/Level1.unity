@@ -6729,6 +6729,7 @@ GameObject:
   - component: {fileID: 969044871}
   - component: {fileID: 969044870}
   - component: {fileID: 969044872}
+  - component: {fileID: 969044873}
   m_Layer: 0
   m_Name: GameManagerObject
   m_TagString: Untagged
@@ -6779,6 +6780,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 440dd5f1fc411e641ae608e64dfb7328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &969044873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 969044869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d2364423189134990cadb399899ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1004624883
@@ -12396,8 +12408,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 307567987}
   enemy: {fileID: 4977034568473020, guid: 2ea6b1d7b44173d4f8623d7659202475, type: 2}
-  count: 50
-  spawnInterval: 0.3
+  count: 25
+  spawnInterval: 0.35
   delayBeforeSpawn: 5
   enemiesSpawned: 0
 --- !u!1 &1656059740
