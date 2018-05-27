@@ -31,14 +31,18 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		reactOnKeysDown ();
 		updateTextStats ();
 	}
 		
-	void updateTextStats(){
-		moneyText.text = Constants.Gameplay.MONEY_TEXT + money;	
-		waveNumberText.text = Constants.Gameplay.WAVE_NUMBER_TEXT + waveNumber;
-		enemiesKilledText.text = Constants.Gameplay.ENEMIES_KILLED_TEXT + enemiesKilled;
-		livesLeftText.text = Constants.Gameplay.LIVES_LEFT_TEXT + livesLeft;
+	void updateTextStats() {
+		//FIXME: remove spike
+		if (moneyText != null) {
+			moneyText.text = Constants.Gameplay.MONEY_TEXT + money;	
+			waveNumberText.text = Constants.Gameplay.WAVE_NUMBER_TEXT + waveNumber;
+			enemiesKilledText.text = Constants.Gameplay.ENEMIES_KILLED_TEXT + enemiesKilled;
+			livesLeftText.text = Constants.Gameplay.LIVES_LEFT_TEXT + livesLeft;
+		}
 	}
 
 	void initGame() {
@@ -59,11 +63,16 @@ public class GameManager : MonoBehaviour {
 		money += enemy.reward;
 	}
 
-	public void cantBuildThere(){
+	public void enemyDestroyed(PathFindingEnemy enemy) {
+		enemiesKilled++;
+		money += enemy.reward;
+	}
+
+	public void cantBuildThere() {
 		StartCoroutine (cantBuildEvent());
 	}
 
-	public bool isAllowedToBuild(GameObject tower){
+	public bool isAllowedToBuild(GameObject tower) {
 		Tower towerToBuild = tower.GetComponent<Tower> ();
 		bool allowed = money >= towerToBuild.price;
 		if (!allowed) {
@@ -72,7 +81,7 @@ public class GameManager : MonoBehaviour {
 		return allowed;
 	}
 
-	public void towerBuilt(GameObject tower){
+	public void towerBuilt(GameObject tower) {
 		int price = tower.GetComponent<Tower> ().price;
 		money -= price;
 	}
@@ -81,15 +90,22 @@ public class GameManager : MonoBehaviour {
 		StartCoroutine (noMoneyEvent());
 	}
 
-	private IEnumerator noMoneyEvent(){
+	private IEnumerator noMoneyEvent() {
 		message.text = Constants.Gameplay.NO_MONEY;
 		yield return new WaitForSeconds(2);
 		message.text = "";
 	}
 
-	private IEnumerator cantBuildEvent(){
+	private IEnumerator cantBuildEvent() {
 		message.text = Constants.Gameplay.CANT_BUILD_THERE;
 		yield return new WaitForSeconds(2);
 		message.text = "";
+	}
+
+	private void reactOnKeysDown(){
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			//TODO: Add confirmation for quit and time freeze
+			Application.LoadLevel(0);
+		}
 	}
 }

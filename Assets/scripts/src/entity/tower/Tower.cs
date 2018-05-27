@@ -26,8 +26,11 @@ public class Tower : MonoBehaviour {
 		InvokeRepeating ("detectTarget", 0, 0.5f);
 	}
 
-	void detectTarget(){
+	void detectTarget() {
 		GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+		if (enemies.Length == 0) {
+			return;
+		}
 
 		GameObject closestEnemy = null;
 		float closestDistance = Mathf.Infinity;
@@ -49,10 +52,11 @@ public class Tower : MonoBehaviour {
 		}
 	}
 
-	void OnDrawGizmosSelected(){
+	void OnDrawGizmosSelected() {
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere (transform.position, range);
 	}
+
 	// Update is called once per frame
 	void Update () {
 		if (target == null) {
@@ -76,8 +80,8 @@ public class Tower : MonoBehaviour {
 		fireCountDown -= Time.deltaTime;
 	}
 
-	void shoot(){
-		GameObject bulletObj = (GameObject)Instantiate (bulletPrefab, firePoint.position, firePoint.rotation);
+	void shoot() {
+		GameObject bulletObj = (GameObject) Instantiate (bulletPrefab, firePoint.position, firePoint.rotation);
 		Bullet bullet = bulletObj.GetComponent<Bullet> ();
 		bullet.setDamage (damage);
 		if (bullet != null) {

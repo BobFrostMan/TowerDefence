@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour {
 		return WayPath.points [pointIndex++];		
 	}
 
-	private void reachTarget(){
+	private void reachTarget() {
 		Debug.Log ("Enemy reached the target, player lost his life");
 		GameManager.instance.decreaseLife ();
 		Destroy (gameObject);
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour {
 		Destroy (gameObject);
 	}
 
-	public void sufferFrom(Bullet bullet){
+	public void sufferFrom(Bullet bullet) {
 		health -= bullet.getDamage ();
 		if (health <= 0) {
 			die ();

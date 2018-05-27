@@ -1085,8 +1085,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -352, y: -73.89}
-  m_SizeDelta: {x: -722, y: 100}
+  m_AnchoredPosition: {x: -270.9, y: -73.89}
+  m_SizeDelta: {x: -559.8, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &127820777
 MonoBehaviour:
@@ -6046,6 +6046,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23094618368534584, guid: cb38f47a136eb51439dee75e68a19e7a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb38f47a136eb51439dee75e68a19e7a, type: 2}
   m_IsPrefabParent: 0
@@ -6753,7 +6758,7 @@ MonoBehaviour:
   enemiesKilledText: {fileID: 1403597971}
   livesLeftText: {fileID: 1162555526}
   message: {fileID: 164423091}
-  money: 100
+  money: 500
   waveNumber: 0
   enemiesKilled: 0
   livesLeft: 10
@@ -6782,6 +6787,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440dd5f1fc411e641ae608e64dfb7328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerToBuild: {fileID: 0}
+  buildModeOn: 0
+  allowedToBuild: 1
 --- !u!114 &969044873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8227,8 +8235,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -352, y: -116.5}
-  m_SizeDelta: {x: -722, y: 100}
+  m_AnchoredPosition: {x: 42.29997, y: -116.5}
+  m_SizeDelta: {x: 66.60006, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1162555526
 MonoBehaviour:
@@ -9966,8 +9974,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -352, y: -103.7}
-  m_SizeDelta: {x: -722, y: 100}
+  m_AnchoredPosition: {x: 213.1, y: -103.7}
+  m_SizeDelta: {x: 408.2, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1354319070
 MonoBehaviour:
@@ -10510,8 +10518,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -352, y: -88.7}
-  m_SizeDelta: {x: -722, y: 100}
+  m_AnchoredPosition: {x: -291.8, y: -88.7}
+  m_SizeDelta: {x: -601.6, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1403597971
 MonoBehaviour:

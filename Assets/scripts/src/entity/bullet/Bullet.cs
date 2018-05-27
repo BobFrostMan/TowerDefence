@@ -12,10 +12,6 @@ public class Bullet : MonoBehaviour {
 	public GameObject impactEffect;
 
 	private int damage;
-
-	void Start () {
-		
-	}
 	
 	void Update () {
 		if (target == null) {
@@ -38,18 +34,24 @@ public class Bullet : MonoBehaviour {
 		this.target = target;
 	}
 
-	private void hit(){
+	private void hit() {
 		GameObject effect = (GameObject)Instantiate (impactEffect, transform.position, transform.rotation);	
 		Destroy (effect, 1);
 		Destroy (gameObject);
-		target.gameObject.GetComponent<Enemy>().sufferFrom(this);
+
+		Enemy enemy = target.gameObject.GetComponent<Enemy> ();
+		if (enemy != null) {
+			enemy.sufferFrom (this);
+		} else {
+			target.gameObject.GetComponent<PathFindingEnemy> ().sufferFrom(this);
+		}
 	}
 
-	public void setDamage(int damage){
+	public void setDamage(int damage) {
 		this.damage = damage;
 	}
 
-	public int getDamage(){
+	public int getDamage() {
 		return damage;
 	}
 

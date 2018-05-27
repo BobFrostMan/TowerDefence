@@ -4,9 +4,10 @@ public class TowerBuildManager : MonoBehaviour {
 
 	public static TowerBuildManager instance;
 
-	private GameObject towerToBuild;
+	public GameObject towerToBuild;
 
-	private bool buildModeOn = false;
+	public bool buildModeOn = false;
+	public bool allowedToBuild = false;
 
 	void Awake () {
 		if (instance == null) {
@@ -14,23 +15,23 @@ public class TowerBuildManager : MonoBehaviour {
 		}
 	}
 
-	public GameObject getTowerToBuild(){
+	public GameObject getTowerToBuild() {
 		return towerToBuild;
 	}
 
-	public void setTower(GameObject obj){
+	public void setTower(GameObject obj) {
 		towerToBuild = obj;
 	}
 		
-	public void enterBuildMode(){
+	public void enterBuildMode() {
 		buildModeOn = true;
 	}
 
-	public void quitBuildMode(){
+	public void quitBuildMode() {
 		buildModeOn = false;
 	}
 
-	public bool isBuildMode(){
+	public bool isBuildMode() {
 		return buildModeOn;
 	}
 }
