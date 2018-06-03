@@ -2057,7 +2057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 
-  health: 50
+  health: 120
   speed: 1
   turnSpeed: 20
   reward: 10
